@@ -28,14 +28,11 @@
     <codeGeneratorPath>src/main/yang-gen-code</codeGeneratorPath>
     <configCodeGeneratorPath>src/main/yang-gen-config</configCodeGeneratorPath>
 
-    <negotiator.version>1.0.0-SNAPSHOT</negotiator.version>
+
     <monitoring.version>1.0.0-SNAPSHOT</monitoring.version>
-    <reference.version>1.0.0-SNAPSHOT</reference.version>
     <resource.version>1.0.0-SNAPSHOT</resource.version>
     <feature.eu.virtuwind.version>1.0.0-SNAPSHOT</feature.eu.virtuwind.version>
 
-    <negotiator.configfile>51-negotiator-config.xml</negotiator.configfile>
-    <reference.configfile>51-reference-config.xml</reference.configfile>
     <monitoring.configfile>51-monitoring-config.xml</monitoring.configfile>
 
     <yang-binding.version>0.8.1-Beryllium-SR1</yang-binding.version>

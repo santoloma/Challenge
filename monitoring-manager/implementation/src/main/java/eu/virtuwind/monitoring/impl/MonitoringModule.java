@@ -35,12 +35,6 @@ public class MonitoringModule extends eu.virtuwind.monitoring.impl.AbstractMonit
         NotificationProviderService notificationService = getNotificationServiceDependency();
         MonitoringProvider provider = new MonitoringProvider(dataBrokerService, rpcProviderRegistry, notificationService);
 
-        InstanceIdentifier<Link> linkInstance = InstanceIdentifier.builder(NetworkTopology.class)
-                .child(Topology.class, new TopologyKey(new TopologyId("flow:1"))).child(Link.class).build();
-        dataBrokerService.registerDataChangeListener(LogicalDatastoreType.OPERATIONAL, linkInstance,
-                new TopologyListener(dataBrokerService, notificationService),
-                AsyncDataBroker.DataChangeScope.BASE);
-
         return provider;
     }
 

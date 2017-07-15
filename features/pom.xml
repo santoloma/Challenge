@@ -110,43 +110,6 @@
             <scope>runtime</scope>
         </dependency>
 
-         <!-- Reference Monitor specific artifacts -->
-         <dependency>
-            <groupId>eu.virtuwind</groupId>
-            <artifactId>reference-config</artifactId>
-            <version>${reference.version}</version>
-            <type>xml</type>
-            <classifier>config</classifier>
-         </dependency>
-         <dependency>
-            <groupId>eu.virtuwind</groupId>
-            <artifactId>reference-impl</artifactId>
-            <version>${reference.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>eu.virtuwind</groupId>
-            <artifactId>reference-model</artifactId>
-            <version>${reference.version}</version>
-        </dependency>
-
-        <!-- QoS Negotiator specific artifacts -->
-        <dependency>
-            <groupId>eu.virtuwind</groupId>
-            <artifactId>negotiator-config</artifactId>
-            <version>${negotiator.version}</version>
-            <type>xml</type>
-            <classifier>config</classifier>
-        </dependency>
-        <dependency>
-            <groupId>eu.virtuwind</groupId>
-            <artifactId>negotiator-impl</artifactId>
-            <version>${negotiator.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>eu.virtuwind</groupId>
-            <artifactId>negotiator-model</artifactId>
-            <version>${negotiator.version}</version>
-        </dependency>
 
         <!-- Monitoring Manager specific artifacts -->
         <dependency>
