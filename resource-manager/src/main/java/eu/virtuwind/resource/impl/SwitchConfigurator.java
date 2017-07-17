@@ -61,6 +61,9 @@ import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.JdkFutureAdapters;
 import com.google.common.util.concurrent.ListenableFuture;
 import org.opendaylight.yang.gen.v1.urn.ietf.params.xml.ns.yang.ietf.inet.types.rev100924.PortNumber;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.flow.types.rev131026.instruction.instruction.MeterCaseBuilder;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.meter.types.rev130918.MeterId;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.flow.types.rev131026.instruction.instruction.meter._case.MeterBuilder;
 
 
 public class SwitchConfigurator {
@@ -187,10 +190,16 @@ public class SwitchConfigurator {
                 .build();
 
         //TODO: WRITE YOUR CODE HERE TO SET THE METER
+        Instruction meterInstruction = new InstructionBuilder()
+                 .setInstruction(new MeterCaseBuilder()
+                 .setMeter(new MeterBuilder()
+                 .setMeterId(new MeterId(new Long(1))).build()).build()).build();
+
 
         Instructions applyInstructions =  new InstructionsBuilder()
-                .setInstruction(ImmutableList.of(applyActionsInstruction))
+                .setInstruction(ImmutableList.of(applyActionsInstruction, meterInstruction))
                 .build();
+
 
         // Put our Instruction in a list of Instructions
         flowBuilder
