@@ -60,6 +60,7 @@ import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.JdkFutureAdapters;
 import com.google.common.util.concurrent.ListenableFuture;
+import org.opendaylight.yang.gen.v1.urn.ietf.params.xml.ns.yang.ietf.inet.types.rev100924.PortNumber;
 
 
 public class SwitchConfigurator {
@@ -136,7 +137,10 @@ public class SwitchConfigurator {
         Ipv4Prefix srcIp = new Ipv4Prefix("10.0.0.1/32");
         Ipv4Prefix dstIp = new Ipv4Prefix("10.0.0.2/32");
         Match match = new MatchBuilder()
-
+                 .setLayer4Match(new TcpMatchBuilder()
+                        .setTcpDestinationPort(new PortNumber(42))
+                        .setTcpSourcePort(new PortNumber(40))
+                        .build())
                 .setLayer3Match(new Ipv4MatchBuilder()
                         .setIpv4Source(srcIp)
                         .setIpv4Destination(dstIp)
