@@ -64,7 +64,29 @@ public class NodeMonitor {
 	}
 //TODO: IMPLEMENT THE METHOD TO GET ALL LINKS
 	public static List<org.opendaylight.yang.gen.v1.urn.tbd.params.xml.ns.yang.network.topology.rev131021.network.topology.topology.Link> getAllLinks(DataBroker db) {
-		return null;
+        List<org.opendaylight.yang.gen.v1.urn.tbd.params.xml.ns.yang.network.topology.rev131021.network.topology.topology.Link> linkList = new ArrayList<>();
+        
+        try {
+            //Topology Id
+            TopologyId topoId = new TopologyId("flow:1");
+            //get the InstanceIdentifier
+            InstanceIdentifier<Topology> linksIid = InstanceIdentifier.builder(NetworkTopology.class).child(Topology.class, new TopologyKey(topoId)).toInstance();
+            ReadOnlyTransaction linksTransaction = db.newReadOnlyTransaction();
+            
+            //Read from operational database
+            CheckedFuture<Optional<Topology>, ReadFailedException> linksFuture = linksTransaction
+            .read(LogicalDatastoreType.OPERATIONAL, linksIid);
+            Optional<Topology> linksOptional = linksFuture.checkedGet();
+            
+            if (linksOptional != null && linksOptional.isPresent()) {
+                linkList = linksOptional.get().getLink();
+            }
+            return linkList;
+        } catch (Exception e) {
+            LOG.info("Link Fetching Failed");
+            return linkList;
+        }
+
 	}
 
 }
