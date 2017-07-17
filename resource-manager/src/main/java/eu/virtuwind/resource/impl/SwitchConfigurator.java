@@ -161,7 +161,7 @@ public class SwitchConfigurator {
         Action queueAction = actionBuilder
                 .setOrder(0).setAction(new SetQueueActionCaseBuilder()
                     .setSetQueueAction(new SetQueueActionBuilder()
-                    .setQueueId((long)1)
+                    .setQueueId((long)3)
                     .build())
                 .build())
                 .build();
